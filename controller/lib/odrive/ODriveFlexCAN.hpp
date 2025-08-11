@@ -1,7 +1,8 @@
 #pragma once
 
-#include "ODriveCAN.h"
-#include "FlexCAN_T4.h"
+//#include "ODriveCAN.h"
+//#include "FlexCAN_T4.h"
+#include "PlatformBridge.h"
 
 using CanMsg = CAN_message_t;
 

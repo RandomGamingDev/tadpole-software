@@ -9,7 +9,7 @@
 #ifndef TADPOLE_SOFTWARE_SDCARD_H
 #define TADPOLE_SOFTWARE_SDCARD_H
 
-#include <SD.h>
+#include "PlatformBridge.h"
 
 class SDCard {
 public:

@@ -3,7 +3,7 @@
 
 // modified by @RobertJN64 to support the tadpole multi-device SPI system
 
-#include <Arduino.h>
+#include "PlatformBridge.h"
 #include "SPI_Fixed.h"
 #include "SPI_Demux.h"
 

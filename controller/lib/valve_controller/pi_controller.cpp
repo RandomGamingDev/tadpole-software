@@ -1,5 +1,5 @@
 #include "pi_controller.h"
-#include <Arduino.h>
+#include "PlatformBridge.h"
 
 PI_Controller::PI_Controller(float kp, float ki, float max_output) {
   this->kp = kp;

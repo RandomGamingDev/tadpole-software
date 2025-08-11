@@ -13,7 +13,7 @@
 #include <vector>
 #include <string>
 #include <functional>
-#include <SD.h>
+#include "PlatformBridge.h"
 
 using namespace std;
 

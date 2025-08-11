@@ -4,7 +4,7 @@
 
 #include "ODriveCAN.h"
 
-#include <Arduino.h> // needed for debug printing
+#include "PlatformBridge.h" // needed for debug printing
 
 bool ODriveCAN::clearErrors(bool identify) {
   Clear_Errors_msg_t msg;

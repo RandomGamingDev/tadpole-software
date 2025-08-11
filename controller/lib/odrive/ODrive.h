@@ -4,7 +4,8 @@
 #include "Router.h"
 #include "CString.h"
 #include "ODriveCAN.h"
-#include <FlexCAN_T4.h>
+#include "PlatformBridge.h"
+//#include <FlexCAN_T4.h>
 #include "ODriveFlexCAN.hpp"
 #define CAN_BAUDRATE 500000
 

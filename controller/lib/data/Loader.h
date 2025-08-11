@@ -11,7 +11,7 @@
 #ifndef TADPOLE_SOFTWARE_LOADER_H
 #define TADPOLE_SOFTWARE_LOADER_H
 
-#include <SD.h>
+#include "PlatformBridge.h"
 #include <Curve.h>
 
 class Loader {

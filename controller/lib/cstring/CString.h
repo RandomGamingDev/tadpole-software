@@ -1,7 +1,7 @@
 #ifndef CSTRING_H
 #define CSTRING_H
 
-#include <Arduino.h>
+#include "PlatformBridge.h"
 
 /*
  * CString.h

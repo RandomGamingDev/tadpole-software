@@ -8,8 +8,11 @@
  * published by the Free Software Foundation.
  */
 
-#include "SPI_Fixed.h"
+#ifdef TEENSY_41
 #include "pins_arduino.h"
+#endif
+
+#include "SPI_Fixed.h"
 
 // #define DEBUG_DMA_TRANSFERS
 

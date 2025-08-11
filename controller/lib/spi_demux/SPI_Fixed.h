@@ -16,15 +16,15 @@
 #ifndef _SPI_FIXED_H_INCLUDED
 #define _SPI_FIXED_H_INCLUDED
 
-#include <Arduino.h>
+#include "PlatformBridge.h"
 
 #if defined(__arm__) && defined(TEENSYDUINO)
 #if defined(__has_include) && __has_include(<EventResponder.h>)
 // SPI_HAS_TRANSFER_ASYNC - Defined to say that the SPI supports an ASYNC version
 // of the SPI_HAS_TRANSFER_BUF
-#define SPI_HAS_TRANSFER_ASYNC 1
-#include <DMAChannel.h>
-#include <EventResponder.h>
+//#define SPI_HAS_TRANSFER_ASYNC 1
+//#include <DMAChannel.h>
+//#include <EventResponder.h>
 #endif
 #endif
 
@@ -71,7 +71,7 @@
 /*     8 bit AVR-based boards				  */
 /**********************************************************/
 
-#if defined(__arm__) && defined(TEENSYDUINO) && (defined(__IMXRT1052__) || defined(__IMXRT1062__))
+#if defined(TARGET_NATIVE) || (defined(__arm__) && defined(TEENSYDUINO) && (defined(__IMXRT1052__) || defined(__IMXRT1062__)))
 
 #define SPI_HAS_NOTUSINGINTERRUPT 1
 #define SPI_ATOMIC_VERSION 1

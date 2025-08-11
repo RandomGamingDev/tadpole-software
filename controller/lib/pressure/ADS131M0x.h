@@ -3,7 +3,8 @@
 
 // based on https://github.com/nikiGagliardi/ADS131M0x/tree/master
 
-#include "Arduino.h"
+#include "PlatformBridge.h"
+//#include "Arduino.h"
 #include "SPI_Fixed.h"
 
 // define for 2-channel version ADS131M02
