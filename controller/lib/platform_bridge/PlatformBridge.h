@@ -28,6 +28,8 @@
 #include <stdint.h>
 #include "PlatformBridgeIMXRT.h"
 #include "PlatformBridgeKinetis.h"
+#include "PlatformBridgeCorePins.h"
+//#include "PlatformBridgeSPI.h"
 
 //#include "csv.h"
 #endif
@@ -61,12 +63,14 @@ using ::String;
 
 #elif defined(TARGET_NATIVE)
 
+/*
 #define HIGH 0x0
 #define LOW 0x1
 
 #define INPUT 0x0
 #define OUTPUT 0x1
 #define INPUT_PULLUP 0x2
+*/
 
 struct Pin {
 	uint8_t mode;
@@ -82,8 +86,8 @@ struct AnalogPin : Pin {
 extern std::array<AnalogPin, UINT8_MAX> analog_pins;
 
 void pinMode(uint8_t pin, uint8_t mode);
-void digitalWrite(uint8_t pin, uint8_t val);
-int digitalRead(uint8_t pin);
+//void digitalWrite(uint8_t pin, uint8_t val);
+//int digitalRead(uint8_t pin);
 int analogRead(uint8_t pin);
 void analogReference(uint8_t mode);
 void analogWrite(uint8_t pin, int val);
@@ -101,10 +105,10 @@ public:
 };
 
 extern std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
-void delay(unsigned long ms);
-void delayMicroseconds(unsigned long ms);
-unsigned long millis();
-unsigned long micros();
+//void delay(unsigned long ms);
+//void delayMicroseconds(unsigned long ms);
+//unsigned long millis();
+//unsigned long micros();
 
 class usb_serial_class {
 public:

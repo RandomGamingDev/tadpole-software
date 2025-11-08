@@ -34,6 +34,7 @@
 #include <stdint.h>
 
 // Teensy 3.0
+/*
 #if defined(__MK20DX128__)
 namespace PlatformBridgeKinetis {
 	enum IRQ_NUMBER_t {
@@ -1347,9 +1348,11 @@ namespace PlatformBridgeKinetis {
 #define DMAMUX0_CHCFG30		(*(volatile uint8_t  *)0x4002101E) // Channel Configuration register
 #define DMAMUX0_CHCFG31		(*(volatile uint8_t  *)0x4002101F) // Channel Configuration register
 #endif
+*/
 #define DMAMUX_DISABLE			0
 #define DMAMUX_TRIG			64
 #define DMAMUX_ENABLE			128
+/*
 
 // Direct Memory Access Controller (eDMA)
 
@@ -2578,7 +2581,7 @@ typedef struct {
 #endif
 
 // Analog Comparator (CMP)
-
+/*
 #define CMP0_CR0		(*(volatile uint8_t  *)0x40073000) // CMP Control Register 0
 #define CMP0_CR1		(*(volatile uint8_t  *)0x40073001) // CMP Control Register 1
 #define CMP0_FPR		(*(volatile uint8_t  *)0x40073002) // CMP Filter Period Register
@@ -2603,6 +2606,7 @@ typedef struct {
 #define CMP3_SCR		(*(volatile uint8_t  *)0x4007301B) // CMP Status and Control Register
 #define CMP3_DACCR		(*(volatile uint8_t  *)0x4007301C) // DAC Control Register
 #define CMP3_MUXCR		(*(volatile uint8_t  *)0x4007301D) // MUX Control Register
+*/
 
 // Analog Voltage Reference (VREFV1)
 
@@ -3063,6 +3067,7 @@ typedef struct {
 
 // Periodic Interrupt Timer (PIT)
 
+/*
 #define PIT_MCR			(*(volatile uint32_t *)0x40037000) // PIT Module Control Register
 #define PIT_MCR_MDIS            (1<<1)                               // Module disable
 #define PIT_MCR_FRZ             (1<<0)                               // Freeze
@@ -3092,6 +3097,7 @@ typedef struct {
 #define PIT_TCTRL3		(*(volatile uint32_t *)0x40037138) // Timer Control Register
 #define PIT_TFLG3		(*(volatile uint32_t *)0x4003713C) // Timer Flag Register
 #endif // defined(KINETISK)
+*/
 
 // Low-Power Timer (LPTMR)
 
@@ -4400,6 +4406,7 @@ typedef struct __attribute__((packed)) {
 #define GPIOE_PTOR		(*(volatile uint32_t *)0x400FF10C) // Port Toggle Output Register
 #define GPIOE_PDIR		(*(volatile uint32_t *)0x400FF110) // Port Data Input Register
 #define GPIOE_PDDR		(*(volatile uint32_t *)0x400FF114) // Port Data Direction Register
+*/
 
 #if defined(KINETISL)
 #define FGPIOA_PDOR		(*(volatile uint32_t *)0xF8000000) // Port Data Output Register
@@ -4499,6 +4506,7 @@ typedef struct __attribute__((packed)) {
 #endif
 
 // Nested Vectored Interrupt Controller, Table 3-4 & ARMv7 ref, appendix B3.4 (page 750)
+/*
 #define NVIC_STIR			(*(volatile uint32_t *)0xE000EF00)
 #define NVIC_ENABLE_IRQ(n)	(*((volatile uint32_t *)0xE000E100 + ((n) >> 5)) = (1 << ((n) & 31)))
 #define NVIC_DISABLE_IRQ(n)	(*((volatile uint32_t *)0xE000E180 + ((n) >> 5)) = (1 << ((n) & 31)))
@@ -4511,7 +4519,9 @@ typedef struct __attribute__((packed)) {
 #else
 #define NVIC_TRIGGER_IRQ(n)	NVIC_SET_PENDING(n)
 #endif
+*/
 
+/*
 #define NVIC_ISER0		(*(volatile uint32_t *)0xE000E100)
 #define NVIC_ISER1		(*(volatile uint32_t *)0xE000E104)
 #define NVIC_ISER2		(*(volatile uint32_t *)0xE000E108)
@@ -4520,6 +4530,7 @@ typedef struct __attribute__((packed)) {
 #define NVIC_ICER1		(*(volatile uint32_t *)0xE000E184)
 #define NVIC_ICER2		(*(volatile uint32_t *)0xE000E188)
 #define NVIC_ICER3		(*(volatile uint32_t *)0xE000E18C)
+*/
 
 // 0 = highest priority
 // Cortex-M4: 0,16,32,48,64,80,96,112,128,144,160,176,192,208,224,240
@@ -4533,11 +4544,13 @@ typedef struct __attribute__((packed)) {
 #endif
 
 
-
+/*
 #define __disable_irq() __asm__ volatile("CPSID i":::"memory");
 #define __enable_irq()	__asm__ volatile("CPSIE i":::"memory");
+*/
 
-// System Control Space (SCS), ARMv7 ref manual, B3.2, page 708
+// System Control Space SCS), ARMv7 ref manual, B3.2, page 708
+/*
 #define SCB_CPUID		(*(const    uint32_t *)0xE000ED00) // CPUID Base Register
 #define SCB_ICSR		(*(volatile uint32_t *)0xE000ED04) // Interrupt Control and State
 #define SCB_ICSR_PENDSTSET		((uint32_t)0x04000000)
@@ -4553,7 +4566,9 @@ typedef struct __attribute__((packed)) {
 #define SCB_HFSR		(*(volatile uint32_t *)0xE000ED2C) // HardFault Status
 #define SCB_DFSR		(*(volatile uint32_t *)0xE000ED30) // Debug Fault Status
 #define SCB_MMFAR		(*(volatile uint32_t *)0xE000ED34) // MemManage Fault Address
+*/
 
+/* REDEFINED_MACROS @PlatformBridgeIMXRT.h
 #define SYST_CSR		(*(volatile uint32_t *)0xE000E010) // SysTick Control and Status
 #define SYST_CSR_COUNTFLAG		((uint32_t)0x00010000)
 #define SYST_CSR_CLKSOURCE		((uint32_t)0x00000004)
@@ -4562,13 +4577,15 @@ typedef struct __attribute__((packed)) {
 #define SYST_RVR		(*(volatile uint32_t *)0xE000E014) // SysTick Reload Value Register
 #define SYST_CVR		(*(volatile uint32_t *)0xE000E018) // SysTick Current Value Register
 #define SYST_CALIB		(*(const    uint32_t *)0xE000E01C) // SysTick Calibration Value
+*/
 
-
+/*
 #define ARM_DEMCR		(*(volatile uint32_t *)0xE000EDFC) // Debug Exception and Monitor Control
 #define ARM_DEMCR_TRCENA		(1 << 24)	 // Enable debugging & monitoring blocks
 #define ARM_DWT_CTRL		(*(volatile uint32_t *)0xE0001000) // DWT control register
 #define ARM_DWT_CTRL_CYCCNTENA		(1 << 0)		// Enable cycle count
 #define ARM_DWT_CYCCNT		(*(volatile uint32_t *)0xE0001004) // Cycle count register
+*/
 
 
 

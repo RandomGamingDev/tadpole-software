@@ -39,9 +39,11 @@ void digitalWrite(uint8_t pin, uint8_t val) {
 			break;
 	}
 }
+/*
 int digitalRead(uint8_t pin) {
 	return digital_pins[pin].value;
 }
+*/
 
 int analogRead(uint8_t pin) {
 	return analog_pins[pin].value;
@@ -74,19 +76,23 @@ void String::trim() {
 
 
 std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
+/*
 void delay(unsigned long ms) {
 	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
+*/
 void delayMicroseconds(unsigned long ms) {
 	std::this_thread::sleep_for(std::chrono::microseconds(ms));
 }
 
+/*
 unsigned long millis() {
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - start_time).count();
 }
 unsigned long micros() {
 	return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - start_time).count();
 }
+*/
 
 usb_serial_class::usb_serial_class() {}
 
